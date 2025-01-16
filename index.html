@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Herramienta para analizar tus seguidores y seguidos de Instagram y descargar listas de resultados.">
+    <meta name="keywords" content="Instagram, análisis, seguidores, seguidos, comparación">
+    <meta name="author" content="davidalvarezp">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#00000">
+    <meta property="og:title" content="InstaStats">
+    <meta property="og:description" content="Analiza tus seguidores y seguidos de Instagram">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://davidalvarezp.com">
+    <meta property="og:image" content="https://davidalvarezp.github.io/instastats/icon.png">
+    <title>InstaStats</title>
+    <link rel="icon" href="icon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: black;
+            color: white;
+            width: 100%;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+        }
+        h2 {
+            text-align: center;
+            color: black;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 1rem 0 0.5rem;
+        }
+        input[type="file"] {
+            width: 90%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #6600FF;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: black;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #f1f1f1;
+            margin: 0.5rem 0;
+            padding: 0.75rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: white;
+        }
+        @media (max-width: 600px) {
+            main {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>InstaStats</h1>
+        <h4 style="color:white">By <a href="https://www.instagram.com/davidalvarezzp" target="_blank" style="color:white">davidalvarezzp</a></h4>
+    </header>
+    <main>
+        <h2>Sube tu archivo ZIP de Instagram</h2>
+        <p style="color: black; font-weight: bold;">¿<a href="readme.html" style="color: black;">Cómo funciona</a>?</p>
+        <form id="uploadForm">
+            <label for="zipFile">Archivo ZIP:</label>
+            <input type="file" id="zipFile" accept=".zip" required>
+            <button type="submit">Procesar</button>
+        </form>
+
+        <h2>Resultados</h2>
+        <div id="downloadButtons" style="display: none;">
+            <button id="downloadNotFollowingBack">Descargar: No te siguen</button>
+            <p></p>
+            <button id="downloadNotFollowingYou">Descargar: No los sigues</button>
+            <p></p>
+            <button id="downloadMutualFollowers">Descargar: Seguimiento mutuo</button>
+        </div>
+        <div id="results"></div>
+    </main>
+    <footer>
+        <p>&copy; 2025 | Developed by <a href="https://davidalvarezp.com" target="_blank" style="color:white">davidalvarezp</a>.</p>
+    </footer>
+
+    <!-- JSZip library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
