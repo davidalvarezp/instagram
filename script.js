@@ -1,3 +1,13 @@
+/**
+ * Este script fue desarrollado por David Alvarez (davidalvarezp.com).
+ * Su uso está sujeto a créditos mencionando a los autores.
+ * 
+ * Descripción: Analiza las listas de seguidores y seguidos de Instagram
+ * para identificar quiénes no te siguen de vuelta, a quiénes no sigues
+ * de vuelta y usuarios con seguimiento mutuo.
+ */
+
+
 document.getElementById("uploadForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const zipFile = document.getElementById("zipFile").files[0];
