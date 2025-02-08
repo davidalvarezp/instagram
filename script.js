@@ -1,6 +1,7 @@
 /**
  * Este script fue desarrollado por David Alvarez (davidalvarezp.com).
- * Su uso está sujeto a créditos mencionando a los autores.
+ * Su uso está sujeto a créditos mencionando al autor.
+ * Para más información contacta con el administrador.
  * 
  * Descripción: Analiza las listas de seguidores y seguidos de Instagram
  * para identificar quiénes no te siguen de vuelta, a quiénes no sigues
@@ -60,12 +61,6 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
         resultsDiv.innerHTML = `
             <h3>Personas que sigues y no te siguen:</h3>
             <ul>${notFollowingBack.map(user => `<li>${user}</li>`).join("")}</ul>
-
-            <h3>Personas que te siguen y no sigues:</h3>
-            <ul>${notFollowingYou.map(user => `<li>${user}</li>`).join("")}</ul>
-
-            <h3>Personas que os seguís mutuamente:</h3>
-            <ul>${mutualFollowers.map(user => `<li>${user}</li>`).join("")}</ul>
         `;
 
         const downloadButtons = document.getElementById("downloadButtons");
