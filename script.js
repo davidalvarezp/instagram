@@ -7,7 +7,6 @@
  * de vuelta y usuarios con seguimiento mutuo.
  */
 
-
 document.getElementById("uploadForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const zipFile = document.getElementById("zipFile").files[0];
@@ -45,9 +44,17 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
         const followersSet = new Set(extractUsernames(followersJSON || []));
         const followingSet = new Set(extractUsernames(followingJSON["relationships_following"] || []));
 
-        const notFollowingBack = Array.from(followingSet).filter(user => !followersSet.has(user)).sort();
-        const notFollowingYou = Array.from(followersSet).filter(user => !followingSet.has(user)).sort();
-        const mutualFollowers = Array.from(followersSet).filter(user => followingSet.has(user)).sort();
+        const notFollowingBack = Array.from(followingSet)
+            .filter(user => user !== "davidalvarezzp" && !followersSet.has(user))
+            .sort();
+        
+        const notFollowingYou = Array.from(followersSet)
+            .filter(user => !followingSet.has(user))
+            .sort();
+        
+        const mutualFollowers = Array.from(followersSet)
+            .filter(user => followingSet.has(user))
+            .sort();
 
         const resultsDiv = document.getElementById("results");
         resultsDiv.innerHTML = `
